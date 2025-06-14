@@ -103,12 +103,9 @@ def generate_pdf(nama, tipe, julukan, sifat, pekerjaan):
     pdf.multi_cell(0, 10, txt=f"Sifat: {sifat}")
     pdf.multi_cell(0, 10, txt=f"Pekerjaan yang Cocok: {pekerjaan}")
 
-    # Simpan ke BytesIO
-    buffer = BytesIO()
-    pdf.output(buffer)
-    buffer.seek(0)
-
-    return buffer
+    # Generate PDF content as string
+    pdf_bytes = pdf.output(dest='S').encode('latin1')  # 'latin1' is required by fpdf
+    return BytesIO(pdf_bytes)
 
 # --------------------- App Utama ---------------------
 st.title("📝 Kuesioner Jenis Kepribadian MBTI")
