@@ -150,11 +150,10 @@ def generate_pdf(nama, tipe, julukan, sifat, pekerjaan):
 st.title("📝 Kuesioner Jenis Kepribadian MBTI")
 
 st.markdown("""
-Selamat datang di kuesioner **Jenis Kepribadian MBTI** – 
+Selamat datang di kuesioner **Jenis Kepribadian MBTI**  
 
 Kuesioner ini dirancang untuk membantu Anda memahami tipe kepribadian Anda berdasarkan kerangka kerja MBTI (Myers-Briggs Type Indicator).
 🔍 MBTI merupakan alat psikologi populer yang digunakan untuk mengenal cara Anda:<br>
-
 🧭 Memusatkan perhatian<br>
 📥 Menerima informasi<br>
 ⚖️ Membuat keputusan<br>
