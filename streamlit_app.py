@@ -195,9 +195,11 @@ if submitted and name:
     
     st.success("✅ Jawaban berhasil dikirim!")
     deskripsi_tipe = tampilkan_info_mbti(result)
-        
+    julukan = deskripsi_tipe["Julukan"]    
 
-    st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
+    st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{julukan}**")    
+
+    '''st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
     
     
 
