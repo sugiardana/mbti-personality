@@ -155,9 +155,9 @@ Selamat datang di kuesioner **Jenis Kepribadian MBTI** –
 Kuesioner ini dirancang untuk membantu Anda memahami tipe kepribadian Anda berdasarkan kerangka kerja MBTI (Myers-Briggs Type Indicator).
 🔍 MBTI merupakan alat psikologi populer yang digunakan untuk mengenal cara Anda:<br>
 
-🧭 Memusatkan perhatian
-📥 Menerima informasi
-⚖️ Membuat keputusan
+🧭 Memusatkan perhatian<br>
+📥 Menerima informasi<br>
+⚖️ Membuat keputusan<br>
 🗓️ Mengatur hidup<br><br>
 
 🔑 Empat Dimensi MBTI:<br>
@@ -174,13 +174,14 @@ Kuesioner ini dirancang untuk membantu Anda memahami tipe kepribadian Anda berda
 → Gaya hidup: terstruktur atau fleksibel?<br>
 <br>
 🎯 Tujuan Kuesioner:<br>
-🪞 Mengenal diri sendiri lebih dalam<br>
+🪞 Mengenal diri sendiri lebih dalam
 <br>
 🚀 Mengembangkan potensi pribadi dan profesional
 <br>
 👥 Meningkatkan hubungan sosial dan kerja tim
 <br>
 💼 Membantu dalam perencanaan karier
+<br>
 <br>
 📝 Petunjuk Pengisian:<br>
 ✅ Jawablah secara jujur dan spontan — tidak ada jawaban salah atau benar!
