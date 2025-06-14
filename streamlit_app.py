@@ -203,7 +203,7 @@ if submitted and name:
     *{pekerjaan}*
     """, unsafe_allow_html=True)
     
-    pdf_file = generate_pdf(nama, tipe, julukan, sifat, pekerjaan)
+    pdf_file = generate_pdf(name, result, julukan, sifat, pekerjaan)
     st.download_button(label="📄 Download Hasil dalam PDF", data=pdf_file, file_name=f"Hasil_MBTI_{nama.replace(' ', '_')}.pdf", mime="application/pdf")
     
     #st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
