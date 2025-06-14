@@ -80,6 +80,17 @@ def load_questions_from_excel(file_path):
     
     return questions_list
 
+def tampilkan_info_mbti(kode_tipe):
+    # Baca file Excel
+    df = pd.read_excel("Deskripsi_Tipe_Kepribadian_MBTI.xlsx")
+
+    # Filter berdasarkan kode tipe
+    hasil = df[df['Tipe MBTI'].str.upper() == kode_tipe.upper()]
+    
+    if not hasil.empty:
+        return hasil.to_string(index=False)
+    else:
+        return f"Tipe MBTI '{kode_tipe}' tidak ditemukan."
 # --------------------- Fungsi PDF ---------------------
 def generate_pdf(name, counts, chart_buf):
     pdf = FPDF()
@@ -183,8 +194,11 @@ if submitted and name:
     result += "J" if counts["J"] >= counts["P"] else "P"
     
     st.success("✅ Jawaban berhasil dikirim!")
-    st.subheader(f"Kecenderungan Kepribadian untuk **{name}** adalah **{result}**")
+    deskripsi_tipe = tampilkan_info_mbti(result)
+        
 
+    st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
+    
     
 
 elif submitted:
