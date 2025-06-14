@@ -196,10 +196,17 @@ if submitted and name:
     st.success("✅ Jawaban berhasil dikirim!")
     deskripsi_tipe = tampilkan_info_mbti(result)
     julukan = deskripsi_tipe["Julukan"]    
+    pekerjaan = deskripsi_tipe["Pekerjaan Cocok"]
+    sifat = deskripsi_tipe["Deskripsi"]
 
     st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{julukan}**")    
 
-    '''st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
+    st.markdown("""
+    Memiliki sifat {sifat}
+    Pekerjaan yang cocok adalah {pekerjaan}
+    """)
+
+    #st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
     
     
 
