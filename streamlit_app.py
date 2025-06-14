@@ -204,8 +204,8 @@ if submitted and name:
 
     st.markdown(f"""
     Seseorang dengan tipe kepribadian **{julukan}** memiliki sifat:<br>
-    {sifat}<br>
-    Pekerjaan yang cocok adalah:<br><br>
+    *{sifat}*<br><br>
+    Pekerjaan yang cocok adalah:<br>
     *{pekerjaan}*
     """, unsafe_allow_html=True)
 
