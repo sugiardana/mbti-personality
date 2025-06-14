@@ -227,7 +227,7 @@ if submitted and name:
     pekerjaan = tipe_mbti["Pekerjaan Cocok"]
     sifat = tipe_mbti["Deskripsi"]
 
-    st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **_{julukan}_**")    
+    st.markdown(f"### Jenis Kepribadian untuk **{name}** dijuluki **_{julukan}_**")    
 
     st.markdown(f"""
     Seseorang dengan tipe kepribadian **{julukan}** memiliki sifat:<br>
