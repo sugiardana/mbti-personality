@@ -153,45 +153,42 @@ st.markdown("""
 Selamat datang di kuesioner **Jenis Kepribadian MBTI** – 
 
 Kuesioner ini dirancang untuk membantu Anda memahami tipe kepribadian Anda berdasarkan kerangka kerja MBTI (Myers-Briggs Type Indicator).
-🔍 MBTI merupakan alat psikologi populer yang digunakan untuk mengenal cara Anda:
+🔍 MBTI merupakan alat psikologi populer yang digunakan untuk mengenal cara Anda:<br>
 
 🧭 Memusatkan perhatian
-
 📥 Menerima informasi
-
 ⚖️ Membuat keputusan
+🗓️ Mengatur hidup<br><br>
 
-🗓️ Mengatur hidup
-
-🔑 Empat Dimensi MBTI:
-💬 Ekstrovert (E) vs 🤫 Introvert (I)
-→ Fokus energi: ke dunia luar atau dalam diri sendiri?
-
-👀 Sensing (S) vs 🔮 Intuition (N)
-→ Cara memahami informasi: fakta konkret atau pola & kemungkinan?
-
-🧠 Thinking (T) vs ❤️ Feeling (F)
-→ Dasar pengambilan keputusan: logika atau nilai & perasaan?
-
-📅 Judging (J) vs 🌀 Perceiving (P)
-→ Gaya hidup: terstruktur atau fleksibel?
-
-🎯 Tujuan Kuesioner:
-🪞 Mengenal diri sendiri lebih dalam
-
+🔑 Empat Dimensi MBTI:<br>
+💬 Ekstrovert (E) vs 🤫 Introvert (I)<br>
+→ Fokus energi: ke dunia luar atau dalam diri sendiri?<br>
+<br>
+👀 Sensing (S) vs 🔮 Intuition (N)<br>
+→ Cara memahami informasi: fakta konkret atau pola & kemungkinan?<br>
+<br>
+🧠 Thinking (T) vs ❤️ Feeling (F)<br>
+→ Dasar pengambilan keputusan: logika atau nilai & perasaan?<br>
+<br>
+📅 Judging (J) vs 🌀 Perceiving (P)<br>
+→ Gaya hidup: terstruktur atau fleksibel?<br>
+<br>
+🎯 Tujuan Kuesioner:<br>
+🪞 Mengenal diri sendiri lebih dalam<br>
+<br>
 🚀 Mengembangkan potensi pribadi dan profesional
-
+<br>
 👥 Meningkatkan hubungan sosial dan kerja tim
-
+<br>
 💼 Membantu dalam perencanaan karier
-
-📝 Petunjuk Pengisian:
+<br>
+📝 Petunjuk Pengisian:<br>
 ✅ Jawablah secara jujur dan spontan — tidak ada jawaban salah atau benar!
-
+<br>
 ⏱️ Waktu pengisian: sekitar 10–15 menit
-
-💡 Fokus pada kebiasaan Anda yang paling alami
-""")
+<br>
+💡 Fokus pada kebiasaan Anda yang paling alami<br>
+""", unsafe_allow_html=True)
 
 name = st.text_input("📛 Masukkan Nama Lengkap Anda:")
 
