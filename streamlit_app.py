@@ -92,14 +92,14 @@ def tampilkan_info_mbti(kode_tipe):
     else:
         return f"Tipe MBTI '{kode_tipe}' tidak ditemukan."
 # --------------------- Fungsi PDF ---------------------
-def generate_pdf(nama, tipe, julukan, sifat, pekerjaan):
+def generate_pdf(name, result, julukan, sifat, pekerjaan):
     pdf = FPDF()
     pdf.add_page()
     pdf.set_font("Arial", size=12)
 
-    pdf.cell(200, 10, txt=f"Hasil Tes MBTI untuk {nama}", ln=True, align='C')
+    pdf.cell(200, 10, txt=f"Hasil Tes MBTI untuk {name}", ln=True, align='C')
     pdf.ln(10)
-    pdf.cell(200, 10, txt=f"Tipe Kepribadian: {tipe} - {julukan}", ln=True)
+    pdf.cell(200, 10, txt=f"Tipe Kepribadian: {result} - {julukan}", ln=True)
     pdf.multi_cell(0, 10, txt=f"Sifat: {sifat}")
     pdf.multi_cell(0, 10, txt=f"Pekerjaan yang Cocok: {pekerjaan}")
 
