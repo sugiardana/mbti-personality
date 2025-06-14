@@ -92,29 +92,23 @@ def tampilkan_info_mbti(kode_tipe):
     else:
         return f"Tipe MBTI '{kode_tipe}' tidak ditemukan."
 # --------------------- Fungsi PDF ---------------------
-def generate_pdf(name, counts, chart_buf):
+def generate_pdf(nama, tipe, julukan, sifat, pekerjaan):
     pdf = FPDF()
     pdf.add_page()
-    pdf.set_font("Arial", size=14)
-    ls_judul = f"Hasil Kuesioner Jenis Kepribadian  {name}"
-    pdf.cell(200, 10, txt=ls_judul, ln=1, align="C")
-    pdf.ln(5)
-    pdf.ln(5)
-    for k, label in zip(['M','S','K','P'], ['Melankolis', 'Sanguinis', 'Kloris', 'Plegmatis']):
-        pdf.cell(200, 10, txt=f"{label}: {counts[k]}", ln=1)
-    
+    pdf.set_font("Arial", size=12)
 
-    # Simpan chart ke file sementara
-    if chart_buf is not None:
-        with tempfile.NamedTemporaryFile(delete=False, suffix=".png") as tmpfile:
-            tmpfile.write(chart_buf.getbuffer())
-            tmpfile_path = tmpfile.name
-        pdf.image(tmpfile_path, x=30, w=150)
+    pdf.cell(200, 10, txt=f"Hasil Tes MBTI untuk {nama}", ln=True, align='C')
+    pdf.ln(10)
+    pdf.cell(200, 10, txt=f"Tipe Kepribadian: {tipe} - {julukan}", ln=True)
+    pdf.multi_cell(0, 10, txt=f"Sifat: {sifat}")
+    pdf.multi_cell(0, 10, txt=f"Pekerjaan yang Cocok: {pekerjaan}")
 
-    # ✅ Simpan hasil PDF ke BytesIO
-    pdf_bytes = pdf.output(dest='S').encode('latin-1')
-    output = BytesIO(pdf_bytes)
-    return output
+    # Simpan ke BytesIO
+    buffer = BytesIO()
+    pdf.output(buffer)
+    buffer.seek(0)
+
+    return buffer
 
 # --------------------- App Utama ---------------------
 st.title("📝 Kuesioner Jenis Kepribadian MBTI")
@@ -208,9 +202,21 @@ if submitted and name:
     Pekerjaan yang cocok adalah:<br>
     *{pekerjaan}*
     """, unsafe_allow_html=True)
+    
+    pdf_file = generate_pdf(nama, tipe, julukan, sifat, pekerjaan)
+
+    st.download_button(
+        label="📄 Download Hasil dalam PDF",
+        data=pdf_file,
+        file_name=f"Hasil_MBTI_{nama.replace(' ', '_')}.pdf",
+        mime="application/pdf"
+    )
+
+
 
     #st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
-    
+
+
     
 
 elif submitted:
