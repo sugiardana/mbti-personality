@@ -110,7 +110,7 @@ def tampilkan_info_mbti(kode_tipe):
 
 # --------------------- Fungsi PDF ---------------------
 def generate_pdf(nama, tipe, julukan, sifat, pekerjaan):
-    pdf = MBTIPDF()
+    pdf = MBTIPDF(orientation='P', unit='mm', format='A5')  # ← di sini A5
     pdf.add_page()
     pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_font("Arial", size=12)
