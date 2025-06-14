@@ -88,7 +88,7 @@ def tampilkan_info_mbti(kode_tipe):
     hasil = df[df['Tipe MBTI'].str.upper() == kode_tipe.upper()]
     
     if not hasil.empty:
-        return hasil.to_string(index=False)
+        return hasil
     else:
         return f"Tipe MBTI '{kode_tipe}' tidak ditemukan."
 # --------------------- Fungsi PDF ---------------------
@@ -195,9 +195,10 @@ if submitted and name:
     
     st.success("✅ Jawaban berhasil dikirim!")
     deskripsi_tipe = tampilkan_info_mbti(result)
-    julukan = deskripsi_tipe["Julukan"]    
-    pekerjaan = deskripsi_tipe["Pekerjaan Cocok"]
-    sifat = deskripsi_tipe["Deskripsi"]
+    tipe_mbti = deskripsi_tipe.iloc[0]
+    julukan = tipe_mbti["Julukan"]    
+    pekerjaan = tipe_mbti["Pekerjaan Cocok"]
+    sifat = tipe_mbti["Deskripsi"]
 
     st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{julukan}**")    
 
