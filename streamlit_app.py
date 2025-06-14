@@ -6,6 +6,22 @@ from fpdf import FPDF
 from io import BytesIO
 import tempfile
 
+class MBTIPDF(FPDF):
+    def header(self):
+        self.set_font("Arial", "B", 16)
+        self.cell(0, 10, "Laporan Hasil Tes Kepribadian MBTI", ln=True, align="C")
+        self.ln(5)
+        self.set_draw_color(100, 100, 100)
+        self.set_line_width(0.5)
+        self.line(10, self.get_y(), 200, self.get_y())
+        self.ln(5)
+
+    def footer(self):
+        self.set_y(-15)
+        self.set_font("Arial", "I", 8)
+        self.set_text_color(128)
+        self.cell(0, 10, f"Halaman {self.page_no()}", align="C")
+        
 # --------------------- CSS Edukatif ---------------------
 st.markdown("""
     <style>
@@ -91,20 +107,43 @@ def tampilkan_info_mbti(kode_tipe):
         return hasil
     else:
         return f"Tipe MBTI '{kode_tipe}' tidak ditemukan."
+
 # --------------------- Fungsi PDF ---------------------
-def generate_pdf(name, tipe, julukan, sifat, pekerjaan):
-    pdf = FPDF()
+def generate_pdf(nama, tipe, julukan, sifat, pekerjaan):
+    pdf = MBTIPDF()
     pdf.add_page()
+    pdf.set_auto_page_break(auto=True, margin=15)
     pdf.set_font("Arial", size=12)
 
-    pdf.cell(200, 10, txt=f"Hasil Tes MBTI untuk {name}", ln=True, align='C')
-    pdf.ln(10)
-    pdf.cell(200, 10, txt=f"Tipe Kepribadian: {tipe} - {julukan}", ln=True)
-    pdf.multi_cell(0, 10, txt=f"Sifat: {sifat}")
-    pdf.multi_cell(0, 10, txt=f"Pekerjaan yang Cocok: {pekerjaan}")
+    # Informasi pribadi
+    pdf.set_font("Arial", "B", 12)
+    pdf.cell(50, 10, "Nama", ln=0)
+    pdf.set_font("Arial", "", 12)
+    pdf.cell(0, 10, f": {nama}", ln=1)
 
-    # Generate PDF content as string
-    pdf_bytes = pdf.output(dest='S').encode('latin1')  # 'latin1' is required by fpdf
+    pdf.set_font("Arial", "B", 12)
+    pdf.cell(50, 10, "Tipe Kepribadian", ln=0)
+    pdf.set_font("Arial", "", 12)
+    pdf.cell(0, 10, f": {tipe} - {julukan}", ln=1)
+
+    pdf.ln(5)
+
+    # Sifat
+    pdf.set_font("Arial", "B", 12)
+    pdf.cell(0, 10, "Deskripsi Sifat:", ln=1)
+    pdf.set_font("Arial", "", 12)
+    pdf.multi_cell(0, 8, sifat)
+
+    pdf.ln(3)
+
+    # Pekerjaan
+    pdf.set_font("Arial", "B", 12)
+    pdf.cell(0, 10, "Pekerjaan yang Cocok:", ln=1)
+    pdf.set_font("Arial", "", 12)
+    pdf.multi_cell(0, 8, pekerjaan)
+
+    # Simpan ke BytesIO
+    pdf_bytes = pdf.output(dest='S').encode('latin1')
     return BytesIO(pdf_bytes)
 
 # --------------------- App Utama ---------------------
