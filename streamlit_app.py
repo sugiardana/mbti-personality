@@ -205,8 +205,8 @@ if submitted and name:
     st.markdown(f"""
     Seseorang dengan tipe kepribadian **{julukan}** memiliki sifat:<br>
     {sifat}<br>
-    Pekerjaan yang cocok adalah:<br>
-    {pekerjaan}
+    Pekerjaan yang cocok adalah:<br><br>
+    *{pekerjaan}*
     """, unsafe_allow_html=True)
 
     #st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
