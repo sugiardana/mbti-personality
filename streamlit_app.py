@@ -203,14 +203,7 @@ if submitted and name:
     *{pekerjaan}*
     """, unsafe_allow_html=True)
     
-pdf_file = generate_pdf(nama, tipe, julukan, sifat, pekerjaan)
 
-st.download_button(
-    label="📄 Download Hasil dalam PDF",
-    data=pdf_file,
-    file_name=f"Hasil_MBTI_{nama.replace(' ', '_')}.pdf",
-    mime="application/pdf"
-)
 
     #st.subheader(f"Jenis Kepribadian untuk **{name}** dijuluki **{deskripsi_tipe['Julukan']}**")
 
@@ -219,4 +212,13 @@ st.download_button(
 
 elif submitted:
     st.warning("⚠️ Silakan isi nama terlebih dahulu sebelum mengirim.")
+
+pdf_file = generate_pdf(nama, tipe, julukan, sifat, pekerjaan)
+
+st.download_button(
+    label="📄 Download Hasil dalam PDF",
+    data=pdf_file,
+    file_name=f"Hasil_MBTI_{nama.replace(' ', '_')}.pdf",
+    mime="application/pdf"
+)
 
