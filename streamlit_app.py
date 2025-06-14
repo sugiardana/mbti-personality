@@ -227,7 +227,7 @@ if submitted and name:
     pekerjaan = tipe_mbti["Pekerjaan Cocok"]
     sifat = tipe_mbti["Deskripsi"]
 
-    st.markdown(f'<h3>Jenis Kepribadian untuk <b>{name}</b> dijuluki <b><i>{julukan}</i></b></h3>',
+    st.markdown(f'<h3>Jenis Kepribadian untuk <i>{name}</i> dijuluki <b><i>{julukan}</i></b></h3>',
     unsafe_allow_html=True)    
 
     st.markdown(f"""
